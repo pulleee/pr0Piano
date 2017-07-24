@@ -1,0 +1,246 @@
+﻿<controls:MetroContentControl x:Class="PianoApp.Views.KeyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="1400" Loaded="MetroContentControl_Loaded">
+
+    <!--todo  personalization of button keybind?-->
+    <Grid x:Name="ControlContainer">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--#region Buttons -->
+        <Button CommandParameter="0" Command="{Binding KeyPressedCommand}" x:Name="buttonC1" Content="1" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="1" Command="{Binding KeyPressedCommand}" x:Name="buttonD3" Content="2" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="2" Command="{Binding KeyPressedCommand}" x:Name="buttonE5" Content="3" Grid.Column="3" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="3" Command="{Binding KeyPressedCommand}" x:Name="buttonF6" Content="4" Grid.Column="4" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="4" Command="{Binding KeyPressedCommand}" x:Name="buttonG8" Content="5" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="5" Command="{Binding KeyPressedCommand}" x:Name="buttonA10" Content="6" Grid.Column="6" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="6" Command="{Binding KeyPressedCommand}" x:Name="buttonB12" Content="7" Grid.Column="7" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="7" Command="{Binding KeyPressedCommand}" x:Name="buttonC13" Content="8" Grid.Column="8" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="8" Command="{Binding KeyPressedCommand}" x:Name="buttonD15" Content="9" Grid.Column="9" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="9" Command="{Binding KeyPressedCommand}" x:Name="buttonE17" Content="0" Grid.Column="10" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="10" Command="{Binding KeyPressedCommand}" x:Name="buttonF18" Content="q" Grid.Column="11" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="11" Command="{Binding KeyPressedCommand}" x:Name="buttonG20" Content="w" Grid.Column="12" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="12" Command="{Binding KeyPressedCommand}" x:Name="buttonA22" Content="e" Grid.Column="13" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="13" Command="{Binding KeyPressedCommand}" x:Name="buttonB24" Content="r" Grid.Column="14" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="14" Command="{Binding KeyPressedCommand}" x:Name="buttonC25" Content="t" Grid.Column="15" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="15" Command="{Binding KeyPressedCommand}" x:Name="buttonD27" Content="z" Grid.Column="16" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="16" Command="{Binding KeyPressedCommand}" x:Name="buttonE29" Content="u" Grid.Column="17" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="17" Command="{Binding KeyPressedCommand}" x:Name="buttonF30" Content="i" Grid.Column="18" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="18" Command="{Binding KeyPressedCommand}" x:Name="buttonG32" Content="o" Grid.Column="19" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="19" Command="{Binding KeyPressedCommand}" x:Name="buttonA34" Content="p" Grid.Column="20" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="20" Command="{Binding KeyPressedCommand}" x:Name="buttonB36" Content="a" Grid.Column="21" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="21" Command="{Binding KeyPressedCommand}" x:Name="buttonC37" Content="s" Grid.Column="22" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="22" Command="{Binding KeyPressedCommand}" x:Name="buttonD39" Content="d" Grid.Column="23" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="23" Command="{Binding KeyPressedCommand}" x:Name="buttonE41" Content="f" Grid.Column="24" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="24" Command="{Binding KeyPressedCommand}" x:Name="buttonF42" Content="g" Grid.Column="25" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="25" Command="{Binding KeyPressedCommand}" x:Name="buttonG44" Content="h" Grid.Column="26" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="26" Command="{Binding KeyPressedCommand}" x:Name="buttonA46" Content="j" Grid.Column="27" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="27" Command="{Binding KeyPressedCommand}" x:Name="buttonB48" Content="k" Grid.Column="28" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="28" Command="{Binding KeyPressedCommand}" x:Name="buttonC49" Content="l" Grid.Column="29" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="29" Command="{Binding KeyPressedCommand}" x:Name="buttonD51" Content="y" Grid.Column="30" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="30" Command="{Binding KeyPressedCommand}" x:Name="buttonE53" Content="x" Grid.Column="31" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="31" Command="{Binding KeyPressedCommand}" x:Name="buttonF54" Content="c" Grid.Column="32" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="32" Command="{Binding KeyPressedCommand}" x:Name="buttonG56" Content="v" Grid.Column="33" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="33" Command="{Binding KeyPressedCommand}" x:Name="buttonA58" Content="b" Grid.Column="34" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="34" Command="{Binding KeyPressedCommand}" x:Name="buttonB60" Content="n" Grid.Column="35" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="35" Command="{Binding KeyPressedCommand}" x:Name="buttonC61" Content="m" Grid.Column="36" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="WhiteSmoke" Foreground="DimGray" VerticalContentAlignment="Bottom"/>
+        <Button CommandParameter="36" Command="{Binding KeyPressedCommand}" x:Name="buttonC2" Grid.ColumnSpan="2"  Grid.Column="1" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="1" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="37" Command="{Binding KeyPressedCommand}" x:Name="buttonD4" Grid.ColumnSpan="2"  Grid.Column="2" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="2" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="38" Command="{Binding KeyPressedCommand}" x:Name="buttonF7" Grid.ColumnSpan="2"  Grid.Column="4" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="4" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="39" Command="{Binding KeyPressedCommand}" x:Name="buttonG9" Grid.ColumnSpan="2"  Grid.Column="5" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="5" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="40" Command="{Binding KeyPressedCommand}" x:Name="buttonA11" Grid.ColumnSpan="2"  Grid.Column="6" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="6" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="41" Command="{Binding KeyPressedCommand}" x:Name="buttonC14" Grid.ColumnSpan="2"  Grid.Column="8" HorizontalAlignment="Left" Margin="22,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="8" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="42" Command="{Binding KeyPressedCommand}" x:Name="buttonD16" Grid.ColumnSpan="2"  Grid.Column="9" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="27" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="9" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="43" Command="{Binding KeyPressedCommand}" x:Name="buttonF19" Grid.ColumnSpan="2"  Grid.Column="11" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="Q" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="44" Command="{Binding KeyPressedCommand}" x:Name="buttonG21" Grid.ColumnSpan="2"  Grid.Column="12" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="W" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="45" Command="{Binding KeyPressedCommand}" x:Name="buttonA23" Grid.ColumnSpan="2"  Grid.Column="13" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="E" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="46" Command="{Binding KeyPressedCommand}" x:Name="buttonC26" Grid.ColumnSpan="2"  Grid.Column="15" HorizontalAlignment="Left" Margin="22,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="T" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="47" Command="{Binding KeyPressedCommand}" x:Name="buttonD28" Grid.ColumnSpan="2"  Grid.Column="16" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="Z" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="48" Command="{Binding KeyPressedCommand}" x:Name="buttonF31" Grid.ColumnSpan="2"  Grid.Column="18" HorizontalAlignment="Left" Margin="22,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="I" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="49" Command="{Binding KeyPressedCommand}" x:Name="buttonG33" Grid.ColumnSpan="2"  Grid.Column="19" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="O" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="50" Command="{Binding KeyPressedCommand}" x:Name="buttonA35" Grid.ColumnSpan="2"  Grid.Column="20" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom">
+            <StackPanel>
+                <Label Content="P" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="51" Command="{Binding KeyPressedCommand}" x:Name="buttonC38"  Grid.Column="22" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="22,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="S" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="52" Command="{Binding KeyPressedCommand}" x:Name="buttonD40"  Grid.Column="23" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="23,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="D" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="53" Command="{Binding KeyPressedCommand}" x:Name="buttonF43"  Grid.Column="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="22,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="G" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="54" Command="{Binding KeyPressedCommand}" x:Name="buttonG45"  Grid.Column="26" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="23,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="H" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="55" Command="{Binding KeyPressedCommand}" x:Name="buttonA47"  Grid.Column="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="24,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="J" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="56" Command="{Binding KeyPressedCommand}" x:Name="buttonC50"  Grid.Column="29" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="22,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="L" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="57" Command="{Binding KeyPressedCommand}" x:Name="buttonD52"  Grid.Column="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="24,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="Y" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="58" Command="{Binding KeyPressedCommand}" x:Name="buttonF55"  Grid.Column="32" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="22,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="C" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="59" Command="{Binding KeyPressedCommand}" x:Name="buttonG57"  Grid.Column="33" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="23,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="V" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <Button CommandParameter="60" Command="{Binding KeyPressedCommand}" x:Name="buttonA59"  Grid.Column="34" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="150" VerticalContentAlignment="Bottom" Margin="24,0,0,0" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Label Content="B" FontSize="8" Height="20" />
+                <Label Content="^" FontSize="8" Height="20"/>
+            </StackPanel>
+        </Button>
+        <!--#endregion-->
+    </Grid>
+</controls:MetroContentControl>
+
