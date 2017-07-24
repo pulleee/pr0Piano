@@ -13,7 +13,7 @@ namespace PianoApp.Views
         public MonitorControl()
         {
             InitializeComponent();
-            DataContext = new MonitorViewModel();
+            DataContext = new MonitorViewModel(this);
         }
 
         public Dispatcher GetDispatcher()

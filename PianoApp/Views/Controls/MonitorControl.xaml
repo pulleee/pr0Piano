@@ -45,9 +45,6 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Grid  Width="Auto" Grid.ColumnSpan="2" Grid.Column="1" Background="{StaticResource GrauColor}">
-            <Label x:Name="labelLastPressedKey" Content="{Binding Path=LabelContent, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="125,0,125,0" FontSize="110"/>
-        </Grid>
         <Border HorizontalAlignment="Left" Height="176" VerticalAlignment="Top" Width="400" Margin="10,0,0,0">
             <Expander x:Name="expander" Header="Expander" Margin="9" Background="{StaticResource EpicBlueColor}">
                 <Grid Background="#FFE5E5E5">
@@ -71,27 +68,27 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Margin="10" Grid.ColumnSpan="2" Grid.Row="1">
-                    <Canvas Margin="0,0,-1,0">
+                <Border Margin="10,0,10,10" Grid.ColumnSpan="2" Grid.Row="1">
+                    <Canvas Margin="0,-1,-1,0">
                         <Label x:Name="labelcontrolPanel1" Content="Control Panel" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <WrapPanel Height="37" Canvas.Left="10" Canvas.Top="26" Width="265">
-                            <Button Width="46" Height="30" Margin="3" RenderTransformOrigin="0.5,0.5">
+                        <WrapPanel Height="43" Canvas.Left="10" Canvas.Top="26" Width="277">
+                            <Button Command="{Binding ButtonStopPressed}" Width="49" Height="37" Margin="3" RenderTransformOrigin="0.5,0.5">
                                 <Image Source="{StaticResource StopIcon}"/>
                             </Button>
-                            <Button Width="46" Height="30" Margin="3" RenderTransformOrigin="0.5,0.5">
+                            <Button Command="{Binding ButtonPausePressed}" Width="49" Height="37" Margin="3" RenderTransformOrigin="0.5,0.5">
                                 <Image Source="{StaticResource PlusIcon}"/>
                             </Button>
-                            <Button Width="46" Height="30" Margin="3" RenderTransformOrigin="0.5,0.5">
+                            <Button Command="{Binding ButtonPlayPressed}" Width="49" Height="37" Margin="3" RenderTransformOrigin="0.5,0.5">
                                 <Image Source="{StaticResource PlayIcon}"/>
                             </Button>
-                            <Button Width="46" Height="30" Margin="3" RenderTransformOrigin="0.5,0.5">
+                            <Button Width="49" Height="37" Margin="3" RenderTransformOrigin="0.5,0.5">
                                 <Image Source="{StaticResource EqualizerIcon}"/>
                             </Button>
-                            <Button Width="46" Height="30" Margin="3" RenderTransformOrigin="0.5,0.5">
+                            <Button Width="49" Height="37" Margin="3" RenderTransformOrigin="0.5,0.5">
                                 <Image Source="{StaticResource LoadIcon}" />
                             </Button>
                         </WrapPanel>
-                        <Button Command="{Binding ButtonConnectionPressed}" Width="47" Height="30" RenderTransformOrigin="0.5,0.5" Canvas.Left="320" Canvas.Top="30">
+                        <Button Command="{Binding ButtonConnectionPressed}" Width="49" Height="37" RenderTransformOrigin="0.5,0.5" Canvas.Left="320" Canvas.Top="30">
                             <Image Source="{StaticResource ConnectionIcon}"/>
                         </Button>
                     </Canvas>
@@ -99,7 +96,7 @@
                 <Border Margin="10">
                     <Canvas>
                         <Label x:Name="labelSoundVolume1" Content="Sound Volume" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <Slider x:Name="slider1" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Height="22" Width="159" Canvas.Left="10" Canvas.Top="35" Value="{Binding SoundVolume, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Slider Value="{Binding SoundVolume}" Canvas.Left="10" Canvas.Top="39" Width="157"/>
                     </Canvas>
                 </Border>
                 <Border Margin="10" Grid.Column="1">
@@ -113,6 +110,16 @@
                 <ComboBox x:Name="comboBoxStyles" Grid.Column="1" Margin="18,41,71,16"/>
             </Grid>
         </Border>
+        <controls:FlipView x:Name="flipView" IsBannerEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="176" Width="540" Margin="10,0,0,0">
+            <Grid Background="{StaticResource GrauColor}">
+                <Label x:Name="labelLastPressedKey" Content="{Binding LabelContent, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="110"/>
+                <Label Content="NODE" FontWeight="Light" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="20" Margin="0,128,461,0"/>
+            </Grid>
+            <Grid Background="{StaticResource EpicBlueColor}">
+                <Label x:Name="labelTimer" Content="{Binding TimerContent, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="125,0,125,0" FontSize="70"/>
+                <Label Content="TIMER" FontWeight="Light" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="20" Margin="461,128,0,0"/>
+            </Grid>
+        </controls:FlipView>
     </Grid>
 </controls:MetroContentControl>
 

@@ -17,12 +17,24 @@ namespace PianoApp.Views
     {
         private readonly MainWindowViewModel _viewmodel;
         private readonly KeyViewModel _keyViewModel;
+        private readonly MonitorViewModel _monitorViewModel;
 
         public MainWindow()
         {
             InitializeComponent();
+            monitorControl.Focus();
             _viewmodel = new MainWindowViewModel(this, keyControl, monitorControl);
             _keyViewModel = (KeyViewModel) keyControl.DataContext;
+            _monitorViewModel = (MonitorViewModel) monitorControl.DataContext;
+            _monitorViewModel.OnTimerTicked += MonitorViewModelOnOnTimerTicked;
+        }
+
+        private void MonitorViewModelOnOnTimerTicked(string str)
+        {
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                _monitorViewModel.TimerContent = str;
+            }));
         }
 
         /// <summary>
