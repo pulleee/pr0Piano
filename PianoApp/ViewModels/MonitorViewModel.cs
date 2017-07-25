@@ -100,7 +100,7 @@ namespace PianoApp.ViewModels
             }
         }
 
-        private string _labelContent;
+        private string _labelContent = ">_";
         /// <summary>
         /// Get/Set Content of the Middle Screen
         /// </summary>
@@ -115,7 +115,7 @@ namespace PianoApp.ViewModels
             }
         }
 
-        private string _timerContent;
+        private string _timerContent = "00:00:00";
         /// <summary>
         /// Get/Set Content of the Middle Timer
         /// </summary>
@@ -165,90 +165,56 @@ namespace PianoApp.ViewModels
         public MonitorViewModel(IMonitorView view)
         {
             View = view;
+            Init();
+        }
+        #endregion
 
-            LabelContent = ">_";
-            TimerContent = "00:00:0";
-
+        #region Private Methods
+        private void Init()
+        {
             _timer = new DispatcherTimer();
             _timer.Tick += dispatcherTimer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             //Task.Factory.StartNew(() => TimerTest());
         }
-        #endregion
-
-        #region Private Methods
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            View.GetDispatcher().Invoke(() =>
-            {
-                _ms++;
-                if (_ms >= 10)
-                {
-                    _ms = 0;
-                    _sec++;
-                }
-                if (_sec == 60)
-                {
-                    _sec = 0;
-                    _min++;
-                }
-
-                StringBuilder timeStr = new StringBuilder();
-
-                if (_min < 10)
-                {
-                    timeStr.Append("0");
-                    timeStr.Append(_min);
-                }
-                else
-                {
-                    timeStr.Append(_min);
-                }
-                timeStr.Append(":");
-
-                if (_sec < 10)
-                {
-                    timeStr.Append("0");
-                    timeStr.Append(_sec);
-                }
-                else
-                {
-                    timeStr.Append(_sec);
-                }
-                timeStr.Append(":");
-                timeStr.Append(_ms);
-
-                TimerContent = timeStr.ToString();
-            });
-        }
 
         private void StartStopWatch(object obj)
         {
             if (!_timer.IsEnabled)
+                View.GetDispatcher().Invoke(() =>
+            {
                 _timer.Start();
+            });
         }
 
         private void StopStopwatch(object obj)
         {
-            _timer = null;
-            _timer = new DispatcherTimer();
-            TimerContent = "00:00:0";
+            ResetTimerVariables();
         }
 
         private void PauseStopwatch(object obj)
         {
             if (_timer.IsEnabled)
-                _timer.Stop();
+                View.GetDispatcher().Invoke(() =>
+                {
+                    _timer.Stop();
+                });
         }
 
         private void ShowInformationWindow(object obj)
         {
-            if (_infoWindow == null)
-                _infoWindow = new InformationWindow();
-
+            // better solution?
+            _infoWindow = new InformationWindow();
             _infoWindow.NavigateWebControlToInfoPage();
             _infoWindow.Show();
+        }
+
+        private void ResetTimerVariables()
+        {
+            TimerContent = "00:00:00";
+            _ms = 0;
+            _sec = 0;
+            _min = 0;
         }
         #endregion
 
@@ -288,10 +254,68 @@ namespace PianoApp.ViewModels
         }
         #endregion
 
+        #region EventHandler
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            #region Timer Magic
+            _ms++;
+            if (_ms >= 100)
+            {
+                _ms = 0;
+                _sec++;
+            }
+            if (_sec == 60)
+            {
+                _sec = 0;
+                _min++;
+            }
+
+            StringBuilder timeStr = new StringBuilder();
+
+            if (_min < 10)
+            {
+                timeStr.Append("0");
+                timeStr.Append(_min);
+            }
+            else
+            {
+                timeStr.Append(_min);
+            }
+            timeStr.Append(":");
+
+            if (_sec < 10)
+            {
+                timeStr.Append("0");
+                timeStr.Append(_sec);
+            }
+            else
+            {
+                timeStr.Append(_sec);
+            }
+            timeStr.Append(":");
+            if (_ms < 10)
+            {
+                timeStr.Append("0");
+                timeStr.Append(_ms);
+            }
+            else
+            {
+                timeStr.Append(_ms);
+            }
+            #endregion
+
+            TimerContent = timeStr.ToString();
+
+            // Let timer only play for 60 minutes
+            if (_min == 60)
+                _timer.Stop();
+        }
+        #endregion
     }
 }

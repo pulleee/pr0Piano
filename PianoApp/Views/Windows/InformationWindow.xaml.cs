@@ -19,7 +19,7 @@ namespace PianoApp.Views.Windows
     /// <summary>
     /// Interaction logic for InformationWindow.xaml
     /// </summary>
-    public partial class InformationWindow : MetroWindow
+    public partial class InformationWindow
     {
         public InformationWindow()
         {
