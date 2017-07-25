@@ -1,11 +1,19 @@
 # pr0Piano
 Virtual Piano Desktop Application
 
+Wanna test it? Clone and navigate this path to the exe. file
+ [..]/PianoApp/bin/Debug/PianoApp.exe
+
+
+
 Version 0.1, trunk
 
-Bisherige Funktionalit‰t:
-	- Digitalisiertes Piano mit Keyboard unterst¸tzung
+Bisherige Funktionalit√§t:
+	- Digitalisiertes Piano mit Keyboard unterst√ºtzung
+	
+	
+
 
 TODOs Im code verteilt. 
-Euch wird auffallen, das fast alle Buttons des Control Panels nicht funktionsf‰hig sind.
-Das wird so der n‰chste Schritt sein von zeit zu zeit zu implementieren.
+Euch wird auffallen, das fast alle Buttons des Control Panels nicht funktionsf√§hig sind.
+Das wird so der n√§chste Schritt sein von zeit zu zeit zu implementieren.
