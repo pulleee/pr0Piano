@@ -11,9 +11,19 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <!-- Accent and AppTheme setting -->
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/cobalt.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/cobalt.xaml" />-->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/basedark.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!--#region Colors -->
+            <SolidColorBrush x:Key="GrauColor" Color="#161618"/>
+            <SolidColorBrush x:Key="EpicBlueColor" Color="#008FFF"/>
+            <SolidColorBrush x:Key="PeacfullGreenColor" Color="#FF0082" />
+            <SolidColorBrush x:Key="ComfortableGreenColor" Color="#1DB992" />
+            <SolidColorBrush x:Key="ProvenOrangeColor" Color="#EE4D2E" />
+            <SolidColorBrush x:Key="OldPinkColor" Color="#FF0082" />
+            <!--#endregion-->
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

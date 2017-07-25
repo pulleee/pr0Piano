@@ -1,17 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 using PianoApp.Properties;
 using PianoApp.Views.Interfaces;
 using PianoApp.Views.Windows;
+using Color = System.Drawing.Color;
 
 namespace PianoApp.ViewModels
 {
@@ -20,9 +22,8 @@ namespace PianoApp.ViewModels
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public delegate void CutsomStringEventArgs(string str);
-
-        public event CutsomStringEventArgs OnTimerTicked;
+        public delegate void StringEventArgs(string e);
+        public event StringEventArgs OnStyleChanged;
         #endregion
 
         #region Commands
@@ -33,7 +34,7 @@ namespace PianoApp.ViewModels
             {
                 return _selectionChangedCommand ?? (_selectionChangedCommand = new RelayCommand(
                            p => true,
-                           ShowInformationWindow));
+                           OnStyleselectionChanged));
             }
         }
 
@@ -85,6 +86,17 @@ namespace PianoApp.ViewModels
 
         #region Properties
         public IMonitorView View { get; set; }
+        public KeyValuePair<string, SolidColorBrush>[] Styles { get; set; }
+
+        private SolidColorBrush _currentStyle;
+        /// <summary>
+        /// Get/Set Current Color Style of the applicaiton
+        /// </summary>
+        public SolidColorBrush CurrentStyle
+        {
+            get { return _currentStyle; }
+            set { _currentStyle = value; OnPropertyChanged(); }
+        }
 
         private Color _color;
         /// <summary>
@@ -93,11 +105,7 @@ namespace PianoApp.ViewModels
         public Color Color
         {
             get { return _color; }
-            set
-            {
-                _color = value;
-                OnPropertyChanged();
-            }
+            set { _color = value; OnPropertyChanged(); }
         }
 
         private string _labelContent = ">_";
@@ -107,12 +115,7 @@ namespace PianoApp.ViewModels
         public string LabelContent
         {
             get { return _labelContent; }
-            set
-            {
-                //_labelContent = CutPath(value);
-                _labelContent = value;
-                OnPropertyChanged();
-            }
+            set { _labelContent = value; OnPropertyChanged(); }
         }
 
         private string _timerContent = "00:00:00";
@@ -122,12 +125,7 @@ namespace PianoApp.ViewModels
         public string TimerContent
         {
             get { return _timerContent; }
-            set
-            {
-                //_labelContent = CutPath(value);
-                _timerContent = value;
-                OnPropertyChanged();
-            }
+            set {_timerContent = value; OnPropertyChanged(); }
         }
 
         // default volume = 50
@@ -172,10 +170,11 @@ namespace PianoApp.ViewModels
         #region Private Methods
         private void Init()
         {
+            Styles = View.InitializeColorBrushes();
+            
             _timer = new DispatcherTimer();
             _timer.Tick += dispatcherTimer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
-            //Task.Factory.StartNew(() => TimerTest());
         }
 
         private void StartStopWatch(object obj)
@@ -189,7 +188,14 @@ namespace PianoApp.ViewModels
 
         private void StopStopwatch(object obj)
         {
-            ResetTimerVariables();
+            if (_timer.IsEnabled)
+                View.GetDispatcher().Invoke(() =>
+                {
+                    _timer.Stop();
+                    ResetTimerVariables();
+                });
+            else
+                ResetTimerVariables();
         }
 
         private void PauseStopwatch(object obj)
@@ -199,6 +205,16 @@ namespace PianoApp.ViewModels
                 {
                     _timer.Stop();
                 });
+        }
+
+        private void OnStyleselectionChanged(object selectedColor)
+        {
+            var keyValuePair = (KeyValuePair<string, SolidColorBrush>)selectedColor;
+            CurrentStyle = keyValuePair.Value;
+
+            if (OnStyleChanged != null)
+                OnStyleChanged(keyValuePair.Key);
+            //View.UpdateStyle(keyValuePair.Value);
         }
 
         private void ShowInformationWindow(object obj)

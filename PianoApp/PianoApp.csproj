@@ -166,6 +166,8 @@
     <Folder Include="ViewModels\Base\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Pictures\pause.png" />
+    <Resource Include="Resources\Pictures\microphone.png" />
     <Content Include="Views\Windows\Credits.html" />
     <Resource Include="Resources\Pictures\stop.png" />
     <Resource Include="Resources\Pictures\pr0blue.PNG" />

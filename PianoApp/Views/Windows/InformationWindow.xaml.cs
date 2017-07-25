@@ -28,7 +28,7 @@ namespace PianoApp.Views.Windows
 
         public void NavigateWebControlToInfoPage()
         {
-            webBrowser.Navigate(@"D:\Users\Daniel\SVN\ElPrincipio\dotNET\Projects\PianoApp\PianoApp\PianoApp\Views\Windows\Credits.html");
+            webBrowser.Navigate(@"D:\Users\Daniel\SVN\PianoAppGit\pr0Piano.git\trunk\PianoApp\Views\Windows\Credits.html");
         }
     }
 }

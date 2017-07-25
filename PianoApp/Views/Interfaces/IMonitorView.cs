@@ -1,7 +1,10 @@
-﻿namespace PianoApp.Views.Interfaces
+﻿using System.Collections.Generic;
+using System.Windows.Media;
+
+namespace PianoApp.Views.Interfaces
 {
     public interface IMonitorView : IBaseView
     {
-        // WIP
+        KeyValuePair<string, SolidColorBrush>[] InitializeColorBrushes();
     }
 }
