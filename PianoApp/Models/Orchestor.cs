@@ -49,6 +49,7 @@ namespace PianoApp.Models
         }
 
         /// <summary>
+        /// todo: bug after certain amount of presses, volume resets?
         /// Sets Volume property of all MediaPlayers in Wrappers to given volume
         /// </summary>
         /// <param name="volume"></param>
