@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using PianoApp.Properties;
+using PianoApp.Util;
 using PianoApp.Views.Interfaces;
 using PianoApp.Views.Windows;
 using Color = System.Drawing.Color;
@@ -82,6 +83,16 @@ namespace PianoApp.ViewModels
             }
         }
 
+        private ICommand _buttonNodeSheetPressed;
+        public ICommand ButtonNodeSheetPressed
+        {
+            get
+            {
+                return _buttonNodeSheetPressed ?? (_buttonNodeSheetPressed = new RelayCommand(
+                           p => true,
+                           ImportNodeSheet));
+            }
+        }
         #endregion
 
         #region Properties
@@ -129,7 +140,7 @@ namespace PianoApp.ViewModels
         }
 
         // default volume = 50
-        private double _soundVolume = 50;
+        private double _soundVolume = 35;
         /// <summary>
         /// Get/Set SoundVolume for a Value from 0 to 100
         /// </summary>
@@ -140,8 +151,18 @@ namespace PianoApp.ViewModels
             {
                 _soundVolume = value;
                 OnPropertyChanged();
-                Task.Factory.StartNew(() => _keyViewModel.Orchestor.SetSoundVolume(value));
+                _keyViewModel.Orchestor.SetSoundVolume(value);
             }
+        }
+
+        private string _nodeSheetValue;
+        /// <summary>
+        /// Get/Set ColorStyle of the Control
+        /// </summary>
+        public string NodeSheetValue
+        {
+            get { return _nodeSheetValue; }
+            set { _nodeSheetValue = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -171,7 +192,8 @@ namespace PianoApp.ViewModels
         private void Init()
         {
             Styles = View.InitializeColorBrushes();
-            
+
+            NodeSheetValue = "import node sheet";
             _timer = new DispatcherTimer();
             _timer.Tick += dispatcherTimer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
@@ -180,7 +202,7 @@ namespace PianoApp.ViewModels
         private void StartStopWatch(object obj)
         {
             if (!_timer.IsEnabled)
-                View.GetDispatcher().Invoke(() =>
+                Dispatcher.CurrentDispatcher.Invoke(() =>
             {
                 _timer.Start();
             });
@@ -189,7 +211,7 @@ namespace PianoApp.ViewModels
         private void StopStopwatch(object obj)
         {
             if (_timer.IsEnabled)
-                View.GetDispatcher().Invoke(() =>
+                Dispatcher.CurrentDispatcher.Invoke(() =>
                 {
                     _timer.Stop();
                     ResetTimerVariables();
@@ -201,7 +223,7 @@ namespace PianoApp.ViewModels
         private void PauseStopwatch(object obj)
         {
             if (_timer.IsEnabled)
-                View.GetDispatcher().Invoke(() =>
+                Dispatcher.CurrentDispatcher.Invoke(() =>
                 {
                     _timer.Stop();
                 });
@@ -212,9 +234,8 @@ namespace PianoApp.ViewModels
             var keyValuePair = (KeyValuePair<string, SolidColorBrush>)selectedColor;
             CurrentStyle = keyValuePair.Value;
 
-            if (OnStyleChanged != null)
-                OnStyleChanged(keyValuePair.Key);
-            //View.UpdateStyle(keyValuePair.Value);
+            OnStyleChanged?.Invoke(keyValuePair.Key);
+            _keyViewModel.View.ReFocus();
         }
 
         private void ShowInformationWindow(object obj)
@@ -223,6 +244,17 @@ namespace PianoApp.ViewModels
             _infoWindow = new InformationWindow();
             _infoWindow.NavigateWebControlToInfoPage();
             _infoWindow.Show();
+        }
+
+        private void ImportNodeSheet(object obj)
+        {
+            var values = NodeSheetImporter.ImportNodeSheet();
+            if (values.Count > 0)
+                NodeSheetValue = string.Empty;
+            values.ForEach(new Action<string>((str) =>
+            {
+                NodeSheetValue = NodeSheetValue + str;
+            }));
         }
 
         private void ResetTimerVariables()

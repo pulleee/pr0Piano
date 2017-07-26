@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using PianoApp.Views.Interfaces;
 
 namespace PianoApp.Models
@@ -18,10 +19,9 @@ namespace PianoApp.Models
         public IList<MediaPlayerWrapper> PlayingMedia;
         public IList<MediaPlayerWrapper> StoppedMedia;
 
-        private readonly IKeyView _view;
-        public Orchestor(IKeyView view)
+        private double _soundVolume = 0.35;
+        public Orchestor()
         {
-            _view = view;
             PlayingMedia = new List<MediaPlayerWrapper>();
             StoppedMedia = new List<MediaPlayerWrapper>();
             SetupMediaPlayer();
@@ -49,23 +49,17 @@ namespace PianoApp.Models
         }
 
         /// <summary>
-        /// todo: bug after certain amount of presses, volume resets?
-        /// Sets Volume property of all MediaPlayers in Wrappers to given volume
+        /// Sets _volume property of all MediaPlayers in Wrappers to given volume
         /// </summary>
         /// <param name="volume"></param>
         public void SetSoundVolume(double volume)
         {
-            List<MediaPlayerWrapper> allMedia = new List<MediaPlayerWrapper>();
-            allMedia.AddRange(PlayingMedia);
-            allMedia.AddRange(StoppedMedia);
+            _soundVolume = volume/100;
+        }
 
-            foreach (MediaPlayerWrapper item in allMedia)
-            {
-                _view.GetDispatcher().Invoke(() =>
-                {
-                    item.MediaPlayer.Volume = volume / 100;
-                });
-            }
+        public double GetSoundVolume()
+        {
+            return _soundVolume;
         }
     }
 }

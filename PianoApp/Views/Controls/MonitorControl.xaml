@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              mc:Ignorable="d" 
              d:DesignHeight="176" d:DesignWidth="1400" Background="Gray">
 
@@ -47,17 +48,20 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Border HorizontalAlignment="Left" Height="176" VerticalAlignment="Top" Width="400" Margin="10,0,0,0">
-            <Expander x:Name="expander" Header="Node Sheets" Margin="9" Background="{Binding CurrentStyle, UpdateSourceTrigger=PropertyChanged}">
-                <Grid Background="#FFE5E5E5">
-                    <RichTextBox x:Name="richTextBox" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Background="White" Foreground="Black" IsReadOnly="True">
-                        <FlowDocument>
-                            <Paragraph>
-                                <Run Text="todo: Node Sheets import"/>
-                            </Paragraph>
-                        </FlowDocument>
-                    </RichTextBox>
-                </Grid>
-            </Expander>
+            <Grid>
+                <Expander x:Name="expander" Header="Node Sheets" Margin="9" Background="{Binding CurrentStyle, UpdateSourceTrigger=PropertyChanged}" IsExpanded="True">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Expanded">
+                            <i:InvokeCommandAction Command="{Binding ExpanderExpandedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <TextBox x:Name="textBoxNodeSheet" FontSize="15" BorderThickness="0"  HorizontalAlignment="Left" Height="122" TextWrapping="Wrap" Text="{Binding NodeSheetValue}" Width="380" Margin="0,0,-2,0" IsReadOnly="True"/>
+                </Expander>
+                <!--<Image gif:ImageBehavior.AnimatedSource="D:\Users\Daniel\SVN\ElPrincipio\dotNET\Projects\RBRPG\trunk\GUI\Resources\Gifs\mage_normal.gif" Grid.Column="0"/>-->
+                <Button Command="{Binding ButtonNodeSheetPressed}" Margin="353,11,10,137" RenderTransformOrigin="0.5,0.5" Height="26">
+                    <Image Source="{StaticResource LoadIcon}"/>
+                </Button>
+            </Grid>
         </Border>
         <Border Grid.Column="3" HorizontalAlignment="Left" Height="176" Margin="10,0,0,0" VerticalAlignment="Top" Width="400">
             <Grid Margin="-1,-1,1,1">
@@ -96,7 +100,7 @@
                 </Border>
                 <Border Margin="10">
                     <Canvas>
-                        <Label x:Name="labelSoundVolume1" Content="Sound Volume" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label x:Name="labelSoundVolume1" Content="Sound _volume" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         <Slider Value="{Binding SoundVolume}" Canvas.Left="10" Canvas.Top="39" Width="157"/>
                     </Canvas>
                 </Border>

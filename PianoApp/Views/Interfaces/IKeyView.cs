@@ -5,6 +5,6 @@ namespace PianoApp.Views.Interfaces
 {
     public interface IKeyView : IBaseView
     {
-        //WIP
+        void ReFocus();
     }
 }

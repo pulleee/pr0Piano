@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using System.Windows.Threading;
 using PianoApp.Models;
 using PianoApp.Views.Interfaces;
 
@@ -24,7 +25,7 @@ namespace PianoApp.ViewModels
         public KeyViewModel(IKeyView view)
         {
             View = view;
-            Orchestor = new Orchestor(view);
+            Orchestor = new Orchestor();
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace PianoApp.ViewModels
             View.GetDispatcher().Invoke(() =>
             {
                 player.PlaySound(parameter);
-            });
+            });          
         }
     }
 }
