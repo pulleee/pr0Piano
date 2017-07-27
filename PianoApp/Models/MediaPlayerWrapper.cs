@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
 using System.Windows.Threading;
 using PianoApp.Properties;
 using PianoApp.Resources;
-using PianoApp.Views.Interfaces;
 
 namespace PianoApp.Models
 {
@@ -48,7 +48,7 @@ namespace PianoApp.Models
             _orchestor.PlayingMedia.Add(this);
             _orchestor.StoppedMedia.Remove(this);
 
-            MediaPlayer.Open(new System.Uri(@SoundBar.GetSoundPathByIdent(int.Parse(parameter.ToString()))));
+            MediaPlayer.Open(new Uri(SoundBar.GetSoundPathByIdent(int.Parse(parameter.ToString()))));
             
             MediaPlayer.Volume = _orchestor.GetSoundVolume();
             MediaPlayer.Play();

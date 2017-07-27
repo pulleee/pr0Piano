@@ -117,4 +117,188 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_01_C1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\01_c1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_02_D3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\02_d3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_03_E5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\03_e5.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_04_F6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\04_f6.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_05_G8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\05_g8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_06_A10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\06_a10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_07_B12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\07_b12.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_08_C13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\08_c13.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_09_D15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\09_d15.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_10_E17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\10_e17.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_11_F18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\11_f18.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_12_G20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\12_g20.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_13_A22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\13_a22.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_14_B24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\14_b24.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_15_C25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\15_c25.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_16_D27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\16_d27.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_17_E29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\17_e29.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_18_F30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\18_f30.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_19_G32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\19_g32.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_20_A34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\20_a34.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_21_B36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\21_b36.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_22_C37" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\22_c37.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_23_D39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\23_d39.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_24_E41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\24_e41.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_25_F42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\25_f42.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_26_G44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\26_g44.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_27_A46" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\27_a46.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_28_B48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\28_b48.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_29_C49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\29_c49.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_30_D51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\30_d51.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_31_E53" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\31_e53.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_32_F54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\32_f54.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_33_G56" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\33_g56.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_34_A58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\34_a58.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_35_B60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\35_b60.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_36_C61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\36_c61.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_37_C2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\37_c2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_38_D4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\38_d4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_39_F7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\39_f7.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_40_G9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\40_g9.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_41_A11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\41_a11.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_42_C14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\42_c14.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_43_D16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\43_d16.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_44_F19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\44_f19.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_45_G21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\45_g21.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_46_A23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\46_a23.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_47_C26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\47_c26.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_48_D28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\48_d28.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_49_F31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\49_f31.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_50_G33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\50_g33.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_51_A35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\51_a35.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_52_C38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\52_c38.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_53_D40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\53_d40.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_54_F43" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\54_f43.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_55_G45" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\55_g45.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_56_A47" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\56_a47.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_56_C50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\56_c50.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_57_D52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\57_d52.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_58_F55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\58_f55.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_59_G57" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\59_g57.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_60_A59" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\60_a59.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
