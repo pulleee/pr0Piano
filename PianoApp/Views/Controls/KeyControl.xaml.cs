@@ -36,10 +36,5 @@ namespace PianoApp.Views
         {
             SoundBar.LoadSoundPaths();
         }
-
-        public void ReFocus()
-        {
-            this.Focus();
-        }
     }
 }

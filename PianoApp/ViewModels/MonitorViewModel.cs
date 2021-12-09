@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Threading;
 using PianoApp.Properties;
-using PianoApp.Util;
 using PianoApp.Views.Interfaces;
 using PianoApp.Views.Windows;
-using Color = System.Drawing.Color;
 
 namespace PianoApp.ViewModels
 {
@@ -23,8 +20,9 @@ namespace PianoApp.ViewModels
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public delegate void StringEventArgs(string e);
-        public event StringEventArgs OnStyleChanged;
+        public delegate void CutsomStringEventArgs(string str);
+
+        public event CutsomStringEventArgs OnTimerTicked;
         #endregion
 
         #region Commands
@@ -35,7 +33,7 @@ namespace PianoApp.ViewModels
             {
                 return _selectionChangedCommand ?? (_selectionChangedCommand = new RelayCommand(
                            p => true,
-                           OnStyleselectionChanged));
+                           ShowInformationWindow));
             }
         }
 
@@ -83,31 +81,10 @@ namespace PianoApp.ViewModels
             }
         }
 
-        private ICommand _buttonNodeSheetPressed;
-        public ICommand ButtonNodeSheetPressed
-        {
-            get
-            {
-                return _buttonNodeSheetPressed ?? (_buttonNodeSheetPressed = new RelayCommand(
-                           p => true,
-                           ImportNodeSheet));
-            }
-        }
         #endregion
 
         #region Properties
         public IMonitorView View { get; set; }
-        public KeyValuePair<string, SolidColorBrush>[] Styles { get; set; }
-
-        private SolidColorBrush _currentStyle;
-        /// <summary>
-        /// Get/Set Current Color Style of the applicaiton
-        /// </summary>
-        public SolidColorBrush CurrentStyle
-        {
-            get { return _currentStyle; }
-            set { _currentStyle = value; OnPropertyChanged(); }
-        }
 
         private Color _color;
         /// <summary>
@@ -116,31 +93,45 @@ namespace PianoApp.ViewModels
         public Color Color
         {
             get { return _color; }
-            set { _color = value; OnPropertyChanged(); }
+            set
+            {
+                _color = value;
+                OnPropertyChanged();
+            }
         }
 
-        private string _labelContent = ">_";
+        private string _labelContent;
         /// <summary>
         /// Get/Set Content of the Middle Screen
         /// </summary>
         public string LabelContent
         {
             get { return _labelContent; }
-            set { _labelContent = value; OnPropertyChanged(); }
+            set
+            {
+                //_labelContent = CutPath(value);
+                _labelContent = value;
+                OnPropertyChanged();
+            }
         }
 
-        private string _timerContent = "00:00:00";
+        private string _timerContent;
         /// <summary>
         /// Get/Set Content of the Middle Timer
         /// </summary>
         public string TimerContent
         {
             get { return _timerContent; }
-            set {_timerContent = value; OnPropertyChanged(); }
+            set
+            {
+                //_labelContent = CutPath(value);
+                _timerContent = value;
+                OnPropertyChanged();
+            }
         }
 
         // default volume = 50
-        private double _soundVolume = 35;
+        private double _soundVolume = 50;
         /// <summary>
         /// Get/Set SoundVolume for a Value from 0 to 100
         /// </summary>
@@ -151,18 +142,8 @@ namespace PianoApp.ViewModels
             {
                 _soundVolume = value;
                 OnPropertyChanged();
-                _keyViewModel.Orchestor.SetSoundVolume(value);
+                Task.Factory.StartNew(() => _keyViewModel.Orchestor.SetSoundVolume(value));
             }
-        }
-
-        private string _nodeSheetValue;
-        /// <summary>
-        /// Get/Set ColorStyle of the Control
-        /// </summary>
-        public string NodeSheetValue
-        {
-            get { return _nodeSheetValue; }
-            set { _nodeSheetValue = value; OnPropertyChanged(); }
         }
 
         #endregion
@@ -184,85 +165,90 @@ namespace PianoApp.ViewModels
         public MonitorViewModel(IMonitorView view)
         {
             View = view;
-            Init();
+
+            LabelContent = ">_";
+            TimerContent = "00:00:0";
+
+            _timer = new DispatcherTimer();
+            _timer.Tick += dispatcherTimer_Tick;
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            //Task.Factory.StartNew(() => TimerTest());
         }
         #endregion
 
         #region Private Methods
-        private void Init()
-        {
-            Styles = View.InitializeColorBrushes();
 
-            NodeSheetValue = "import node sheet";
-            _timer = new DispatcherTimer();
-            _timer.Tick += dispatcherTimer_Tick;
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            View.GetDispatcher().Invoke(() =>
+            {
+                _ms++;
+                if (_ms >= 10)
+                {
+                    _ms = 0;
+                    _sec++;
+                }
+                if (_sec == 60)
+                {
+                    _sec = 0;
+                    _min++;
+                }
+
+                StringBuilder timeStr = new StringBuilder();
+
+                if (_min < 10)
+                {
+                    timeStr.Append("0");
+                    timeStr.Append(_min);
+                }
+                else
+                {
+                    timeStr.Append(_min);
+                }
+                timeStr.Append(":");
+
+                if (_sec < 10)
+                {
+                    timeStr.Append("0");
+                    timeStr.Append(_sec);
+                }
+                else
+                {
+                    timeStr.Append(_sec);
+                }
+                timeStr.Append(":");
+                timeStr.Append(_ms);
+
+                TimerContent = timeStr.ToString();
+            });
         }
 
         private void StartStopWatch(object obj)
         {
             if (!_timer.IsEnabled)
-                Dispatcher.CurrentDispatcher.Invoke(() =>
-            {
                 _timer.Start();
-            });
         }
 
         private void StopStopwatch(object obj)
         {
-            if (_timer.IsEnabled)
-                Dispatcher.CurrentDispatcher.Invoke(() =>
-                {
-                    _timer.Stop();
-                    ResetTimerVariables();
-                });
-            else
-                ResetTimerVariables();
+            _timer = null;
+            _timer = new DispatcherTimer();
+            TimerContent = "00:00:0";
         }
 
         private void PauseStopwatch(object obj)
         {
             if (_timer.IsEnabled)
-                Dispatcher.CurrentDispatcher.Invoke(() =>
-                {
-                    _timer.Stop();
-                });
-        }
-
-        private void OnStyleselectionChanged(object selectedColor)
-        {
-            var keyValuePair = (KeyValuePair<string, SolidColorBrush>)selectedColor;
-            CurrentStyle = keyValuePair.Value;
-
-            OnStyleChanged?.Invoke(keyValuePair.Key);
-            _keyViewModel.View.ReFocus();
+                _timer.Stop();    
         }
 
         private void ShowInformationWindow(object obj)
         {
-            // better solution?
-            _infoWindow = new InformationWindow();
+            if (_infoWindow == null)
+                _infoWindow = new InformationWindow();
+
             _infoWindow.NavigateWebControlToInfoPage();
             _infoWindow.Show();
-        }
-
-        private void ImportNodeSheet(object obj)
-        {
-            var values = NodeSheetImporter.ImportNodeSheet();
-            if (values.Count > 0)
-                NodeSheetValue = string.Empty;
-            values.ForEach(new Action<string>((str) =>
-            {
-                NodeSheetValue = NodeSheetValue + str;
-            }));
-        }
-
-        private void ResetTimerVariables()
-        {
-            TimerContent = "00:00:00";
-            _ms = 0;
-            _sec = 0;
-            _min = 0;
         }
         #endregion
 
@@ -302,68 +288,10 @@ namespace PianoApp.ViewModels
         }
         #endregion
 
-        #region EventHandler
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            #region Timer Magic
-            _ms++;
-            if (_ms >= 100)
-            {
-                _ms = 0;
-                _sec++;
-            }
-            if (_sec == 60)
-            {
-                _sec = 0;
-                _min++;
-            }
-
-            StringBuilder timeStr = new StringBuilder();
-
-            if (_min < 10)
-            {
-                timeStr.Append("0");
-                timeStr.Append(_min);
-            }
-            else
-            {
-                timeStr.Append(_min);
-            }
-            timeStr.Append(":");
-
-            if (_sec < 10)
-            {
-                timeStr.Append("0");
-                timeStr.Append(_sec);
-            }
-            else
-            {
-                timeStr.Append(_sec);
-            }
-            timeStr.Append(":");
-            if (_ms < 10)
-            {
-                timeStr.Append("0");
-                timeStr.Append(_ms);
-            }
-            else
-            {
-                timeStr.Append(_ms);
-            }
-            #endregion
-
-            TimerContent = timeStr.ToString();
-
-            // Let timer only play for 60 minutes
-            if (_min == 60)
-                _timer.Stop();
-        }
-        #endregion
     }
 }

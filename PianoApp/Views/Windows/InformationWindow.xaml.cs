@@ -19,7 +19,7 @@ namespace PianoApp.Views.Windows
     /// <summary>
     /// Interaction logic for InformationWindow.xaml
     /// </summary>
-    public partial class InformationWindow
+    public partial class InformationWindow : MetroWindow
     {
         public InformationWindow()
         {
@@ -28,7 +28,7 @@ namespace PianoApp.Views.Windows
 
         public void NavigateWebControlToInfoPage()
         {
-            webBrowser.Navigate(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\Views\\Windows\\Credits.html"));
+            webBrowser.Navigate(@"D:\Users\Daniel\SVN\ElPrincipio\dotNET\Projects\PianoApp\PianoApp\PianoApp\Views\Windows\Credits.html");
         }
     }
 }

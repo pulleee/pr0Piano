@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Threading;
 using PianoApp.Views.Interfaces;
 
 namespace PianoApp.Models
@@ -16,12 +11,13 @@ namespace PianoApp.Models
         /// </summary>
         private const int PlayerInstances = 36;
 
-        public IList<MediaPlayerWrapper> PlayingMedia;
-        public IList<MediaPlayerWrapper> StoppedMedia;
+        public IList<MediaPlayerWrapper> PlayingMedia { get; set; }
+        public IList<MediaPlayerWrapper> StoppedMedia { get; set; }
 
-        private double _soundVolume = 0.35;
-        public Orchestor()
+        private readonly IKeyView _view;
+        public Orchestor(IKeyView view)
         {
+            _view = view;
             PlayingMedia = new List<MediaPlayerWrapper>();
             StoppedMedia = new List<MediaPlayerWrapper>();
             SetupMediaPlayer();
@@ -49,17 +45,22 @@ namespace PianoApp.Models
         }
 
         /// <summary>
-        /// Sets _volume property of all MediaPlayers in Wrappers to given volume
+        /// Sets Volume property of all MediaPlayers in Wrappers to given volume
         /// </summary>
         /// <param name="volume"></param>
         public void SetSoundVolume(double volume)
         {
-            _soundVolume = volume/100;
-        }
+            List<MediaPlayerWrapper> allMedia = new List<MediaPlayerWrapper>();
+            allMedia.AddRange(PlayingMedia);
+            allMedia.AddRange(StoppedMedia);
 
-        public double GetSoundVolume()
-        {
-            return _soundVolume;
+            foreach (MediaPlayerWrapper item in allMedia)
+            {
+                _view.GetDispatcher().Invoke(() =>
+                {
+                    item.Volume = volume / 100;
+                });
+            }
         }
     }
 }

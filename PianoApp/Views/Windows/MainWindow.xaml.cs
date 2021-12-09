@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using MahApps.Metro;
 using PianoApp.ViewModels;
 using PianoApp.Views.Interfaces;
 
@@ -27,14 +26,15 @@ namespace PianoApp.Views
             _viewmodel = new MainWindowViewModel(this, keyControl, monitorControl);
             _keyViewModel = (KeyViewModel) keyControl.DataContext;
             _monitorViewModel = (MonitorViewModel) monitorControl.DataContext;
-
-            _monitorViewModel.OnStyleChanged += _monitorViewModel_OnStyleChanged;
+            _monitorViewModel.OnTimerTicked += MonitorViewModelOnOnTimerTicked;
         }
 
-        private void SetupThemeManager()
+        private void MonitorViewModelOnOnTimerTicked(string str)
         {
-            ThemeManager.AddAccent("Right Gray",
-                new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/basedark.xaml"));
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                _monitorViewModel.TimerContent = str;
+            }));
         }
 
         /// <summary>
@@ -81,16 +81,6 @@ namespace PianoApp.Views
         public Dispatcher GetDispatcher()
         {
             return this.Dispatcher;
-        }
-
-        private void _monitorViewModel_OnStyleChanged(string e)
-        {
-            // set the Red accent and dark theme only to the current window
-            var accent = ThemeManager.GetAccent(e);
-            var theme = ThemeManager.GetAppTheme("BaseDark");
-
-
-            ThemeManager.ChangeAppStyle(this, accent, theme);
         }
     }
 }

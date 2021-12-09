@@ -1,10 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
-using System.Windows.Threading;
 using PianoApp.Properties;
 using PianoApp.Resources;
 
@@ -12,11 +10,16 @@ namespace PianoApp.Models
 {
     public class MediaPlayerWrapper : INotifyPropertyChanged, IDisposable
     {
+        /// <summary>
+        /// Fires when media has ended
+        /// </summary>
         public event EventHandler MediaHasEnded;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public MediaPlayer MediaPlayer { get; set; }
-        public double Volume { get; set; }
+
+        public double Volume { get; set; } = 50;
 
         private readonly Orchestor _orchestor;
 
@@ -24,10 +27,8 @@ namespace PianoApp.Models
         {
             _orchestor = orchestor;
             MediaPlayer = new MediaPlayer();
-
-            Volume = 35;
-
-            MediaPlayer.MediaEnded += MediaPlayer_OnMediaEnded;
+            // register on MediaEndedEvent
+            MediaPlayer.MediaEnded += MediaPlayerOnMediaEnded;
         }
 
         /// <summary>
@@ -48,13 +49,12 @@ namespace PianoApp.Models
             _orchestor.PlayingMedia.Add(this);
             _orchestor.StoppedMedia.Remove(this);
 
-            MediaPlayer.Open(new Uri(SoundBar.GetSoundPathByIdent(int.Parse(parameter.ToString()))));
-            
-            MediaPlayer.Volume = _orchestor.GetSoundVolume();
+            MediaPlayer.Volume = Volume;
+            MediaPlayer.Open(new System.Uri(@SoundBar.GetSoundPathByIdent(int.Parse(parameter.ToString()))));
             MediaPlayer.Play();
         }
 
-        private void MediaPlayer_OnMediaEnded(object sender, EventArgs eventArgs)
+        private void MediaPlayerOnMediaEnded(object sender, EventArgs eventArgs)
         {
             _orchestor.PlayingMedia.Remove(this);
             _orchestor.StoppedMedia.Add(this);
@@ -65,15 +65,20 @@ namespace PianoApp.Models
             MediaPlayer.Close();
         }
 
+        /// <summary>
+        /// Disposes instance of MediaPlayerWrapper
+        /// needed?
+        /// </summary>
+        public void Dispose()
+        {
+            MediaPlayer.MediaEnded -= MediaPlayerOnMediaEnded;
+            MediaPlayer.Close();
+        }
+
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void Dispose()
-        {
-            MediaPlayer.Close();
         }
     }
 }
